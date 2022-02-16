@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Restorani.ba.Models.Restoran>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col pt-6">
+            <h2 class="text-primary">Restorani</h2>
+        </div>
+        <div class="col-6 text-right">
+            <!-- Dugme koje vodi na GET-create akciju i novi view-->
+            <a asp-controller="Restoran" asp-action="Create" class="btn btn-primary">Dodaj novi restoran</a>
+        </div>
+    </div>
+    </div>
+    <br />
+    <!-- Ukoliko postoji kreirana biblioteka -->
+    @if(Model.Count()>0)
+    {
+       <table class="table table-bordered table-striped" style="width:100%">
+           <thead>
+               <tr>
+                   <th>
+                       Naziv
+                   </th>
+                   <th>
+                       Adresa
+                   </th>
+                   <th>
+                       Broj
+                   </th>
+               </tr>
+           </thead>
+           <tbody>
+                @foreach(var restoran in Model)
+                {
+                    <tr>
+                        <td width="30%">@restoran.Name</td>
+                        <td width="30%">@restoran.Adress</td>
+                        <td width="40%">@restoran.Number</td>
+                    </tr>
+                }
+            </tbody>
+       </table>
+       
+       }
+    else
+        {
+            <p>Trenutno nema kreiranih restorana</p>
+        }
+

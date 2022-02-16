@@ -1,0 +1,51 @@
+﻿@model Restorani.ba.Models.Jelo
+
+    <div class="container p-3">
+    
+    <br />
+ @if(Model != null){
+     <div class="col-6 text-right" style="margin-bottom: 2rem;">
+         <div class="row pt-4">
+        <div class="col pt-6">
+            <h2 class="text-primary">Preporuka jela</h2>
+        </div>
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary" style="margin-left: 1rem;">Preporuči drugo jelo</a>
+    </div>
+            
+        </div>
+       <table class="table table-bordered table-striped" style="width:100%">
+           <thead>
+               <tr>
+                   <th>
+                       Naziv
+                   </th>
+                   <th>
+                       Cijena
+                   </th>
+                   <th>
+                       Dostupno u:
+                   </th>
+               </tr>
+           </thead>
+           <tbody>
+               
+                    <tr>
+                        <td width="50%">@Model.Name</td>
+                    
+                        <td width="25%">@Model.Price</td>
+            
+                        <td width="25%">@Model.Restoran.Name</td>
+                    </tr>
+                
+            </tbody>
+        </table>
+        }
+    else
+        {
+            <h2>Nema Jela u ponudi</h2>
+            <div class="col-6 text-right">
+            <a asp-controller="Jelo" asp-action="Create" class="btn btn-primary">Kreiraj jelo</a>
+        </div>
+        }
+
+</div>
